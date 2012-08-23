@@ -14,7 +14,6 @@ http.createServer((request, response) ->
 			console.log "\t 400 File Not Found"
 			response.writeHead 404, { "Content-Type": "text/plain"}
 			response.end("Cannot find your file"); 
-			console.log "" 
 		else
 			file.readFile filename, 'binary', (err, file) -> 
 				if err
@@ -22,13 +21,13 @@ http.createServer((request, response) ->
 					console.log "An error has occurred #{err}"
 					response.writeHead 500, { "Content-Type": "text/plain"}	
 					response.end(err)
-					console.log "" 
 				else
 					console.log "\t 200 File Served"
 					response.writeHead 200
 					response.write(file, 'binary')
 					response.end()
-					console.log "" 
+		# New lines are cute.  
+		console.log "" 
 	)); 
 
 
